@@ -7,7 +7,12 @@ const StringCalculator = {
             delimiter = new RegExp(parts[0][2]); // Extract the custom delimiter
             numbers = parts[1];
         }
-        return numbers.split(delimiter).reduce((sum, num) => sum + parseInt(num), 0);
+
+        const numberArray = numbers.split(delimiter).map(Number); // Split the string by the delimiter(s)
+        const negatives = numberArray.filter(num => num < 0); // Find negative numbers
+        if (negatives.length > 0) throw new Error(`negative numbers not allowed: ${negatives.join(",")}`);
+
+        return numberArray.reduce((sum, num) => sum + num, 0);
     }
 };
 

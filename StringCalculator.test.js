@@ -30,4 +30,8 @@ describe('StringCalculator', () => {
         const result = StringCalculator.add("//;\n1;2");
         expect(result).toBe(3);
     });
+
+    test('should throw an error for negative numbers', () => {
+        expect(() => StringCalculator.add("1,-2,3")).toThrow("negative numbers not allowed: -2");
+    });
 });
