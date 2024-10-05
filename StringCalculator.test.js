@@ -10,4 +10,9 @@ describe('StringCalculator', () => {
         const result = StringCalculator.add("1");
         expect(result).toBe(1);
     });
+
+    test('should return the sum of two numbers', () => {
+        const result = StringCalculator.add("1,2");
+        expect(result).toBe(3);
+    });
 });
